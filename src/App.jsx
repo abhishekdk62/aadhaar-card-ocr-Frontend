@@ -34,10 +34,8 @@ function App() {
       setError("Please upload both front and back images");
       return;
     }
-
     setIsProcessing(true);
     setError("");
-
     try {
       const response = await processOCR(frontImage, backImage);
       setResult(response.data.data);
@@ -45,7 +43,6 @@ function App() {
       
     } catch (error) {
       console.log(error);
-      
       setError(error.response?.data?.error || "Error processing images");
     } finally {
       setIsProcessing(false);
@@ -78,6 +75,7 @@ function App() {
 
             <div className="grid md:grid-cols-2 gap-8 mb-8">
               <ImageUpload
+              setError={setError}
                 type="front"
                 label="Front Side"
                 image={frontImage}
@@ -85,6 +83,7 @@ function App() {
                 onRemoveImage={onRemoveImage}
               />
               <ImageUpload
+              setError={setError}
                 type="back"
                 label="Back Side"
                 image={backImage}
@@ -99,7 +98,6 @@ function App() {
               </div>
             )}
 
-            {/* Process Button */}
             <div className="text-center">
               <button
                 onClick={handleProcessOCR}

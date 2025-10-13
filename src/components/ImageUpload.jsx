@@ -1,16 +1,30 @@
 import React from "react";
 import { Upload, X } from "lucide-react";
 
-const ImageUpload = ({ type, label, onImageUpload, image, onRemoveImage }) => {
-  const handleFileChange = (event) => {
+const ImageUpload = ({setError, type, label, onImageUpload, image, onRemoveImage }) => {
+ const handleFileChange = (event) => {
     const file = event.target.files[0];
 
     if (file) {
-      if (file.type.startsWith("image/")) {
-        onImageUpload(type, file);
-      } else {
-        alert("Please select only image files");
+      const allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
+      if (!allowedExtensions.test(file.name)) {
+        setError("Invalid file type. Only JPEG, JPG, PNG, and GIF are allowed.");
+        event.target.value = ""; 
+        return;
       }
+      const allowedMimeTypes = ["image/jpeg", "image/jpg", "image/png", "image/gif"];
+      if (!allowedMimeTypes.includes(file.type)) {
+        setError("Invalid file type. Only JPEG, JPG, PNG, and GIF are allowed.");
+        event.target.value = "";
+        return;
+      }
+      const maxSize = 5 * 1024 * 1024;
+      if (file.size > maxSize) {
+        setError("File size exceeds 5MB. Please upload a smaller image.");
+        event.target.value = ""; 
+        return;
+      }
+      onImageUpload(type, file);
     }
   };
 
