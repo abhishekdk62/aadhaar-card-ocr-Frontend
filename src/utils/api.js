@@ -13,7 +13,9 @@ export const processOCR = async (frontImage, backImage) => {
     headers: {
       "Content-Type": "multipart/form-data",
     },
-        timeout: 80000, 
-
+    timeout: 80000,
   });
+};
+export const test = async () => {
+  return await axios.get(`${API_BASE_URL}/`)
 };

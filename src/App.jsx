@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { AlertCircle, Zap, RotateCcw, Loader2 } from "lucide-react";
 import ImageUpload from "./components/ImageUpload";
 import ResultDisplay from "./components/ResultDisplay";
 import { processOCR } from "./utils/api";
+import axios from "axios";
 
 function App() {
   const [frontImage, setFrontImage] = useState(null);
@@ -56,6 +57,12 @@ function App() {
     setResult(null);
     setError("");
   };
+  const [data,setData]=useState()
+  useEffect(()=>{
+   let s= test()
+   console.log(s);
+   
+  },[])
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
