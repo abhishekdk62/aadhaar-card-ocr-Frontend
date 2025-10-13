@@ -10,10 +10,10 @@ export const processOCR = async (frontImage, backImage) => {
   formData.append("frontImage", frontImage);
   formData.append("backImage", backImage);
   return await axios.post(`${API_BASE_URL}/ocr/process`, formData, {
-    
     headers: {
-      
       "Content-Type": "multipart/form-data",
     },
+        timeout: 80000, // ✅ 50 seconds timeout
+
   });
 };
