@@ -23,6 +23,7 @@ function App() {
     if (type === "front") {
       setFrontImage(file);
     } else {
+      
       setBackImage(file);
     }
     setError("");

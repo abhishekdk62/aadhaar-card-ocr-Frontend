@@ -13,7 +13,7 @@ export const processOCR = async (frontImage, backImage) => {
     headers: {
       "Content-Type": "multipart/form-data",
     },
-        timeout: 80000, // ✅ 50 seconds timeout
+        timeout: 80000, 
 
   });
 };
