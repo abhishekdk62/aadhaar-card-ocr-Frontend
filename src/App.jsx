@@ -57,7 +57,6 @@ function App() {
     setResult(null);
     setError("");
   };
-  const [data,setData]=useState()
   useEffect(()=>{
    let s= test()
    console.log(s);
