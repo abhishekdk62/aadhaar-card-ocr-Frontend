@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { AlertCircle, Zap, RotateCcw, Loader2 } from "lucide-react";
 import ImageUpload from "./components/ImageUpload";
 import ResultDisplay from "./components/ResultDisplay";
-import { processOCR } from "./utils/api";
+import { processOCR, test } from "./utils/api";
 import axios from "axios";
 
 function App() {
