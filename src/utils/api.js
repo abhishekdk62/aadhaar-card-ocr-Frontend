@@ -17,5 +17,5 @@ export const processOCR = async (frontImage, backImage) => {
   });
 };
 export const test = async () => {
-  return await axios.get(`${API_BASE_URL}/`)
+  return await axios.get(`https://aadhaar-card-ocr-backend.vercel.app/`)
 };
