@@ -57,9 +57,15 @@ function App() {
     setResult(null);
     setError("");
   };
+  async function get()
+  {
+    let s= await test()
+    console.log(s);
+    
+
+  }
   useEffect(()=>{
-   let s= test()
-   console.log(s);
+ get()
    
   },[])
 
