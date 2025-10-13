@@ -61,7 +61,7 @@ function App() {
       <header className="bg-white/80 backdrop-blur-md border-b border-indigo-100">
         <div className="max-w-6xl mx-auto px-6 py-8">
           <h1 className="text-4xl text-indigo-500 font-bold bg-gradient-to-r bg-clip-text text-center">
-            Aadhaar Card OCR
+            Aadhaar-Card OCR
           </h1>
         </div>
       </header>
